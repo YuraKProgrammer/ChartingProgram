@@ -1,2 +1,4 @@
 ﻿  main.cpp
-  ChartingProgram.vcxproj -> C:\Users\googl\Desktop\ChartingProgram\x64\Debug\ChartingProgram.exe
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(8,34): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(8,24): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  ChartingProgram.vcxproj -> C:\Users\googl\Documents\GitHub\ChartingProgram\x64\Debug\ChartingProgram.exe

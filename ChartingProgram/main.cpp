@@ -2,17 +2,20 @@
 
 using namespace sf;
 
+
+sf::CircleShape GetShape(int x) {
+    CircleShape shape(10.f, 10);
+    shape.setPosition(x+500, 1080-x*x);
+    shape.setFillColor(Color::Magenta);
+    return shape;
+}
+
 int main()
 {
     RenderWindow window(VideoMode(1920, 1080), L"Рисователь графиков", Style::Default);
 
     window.setVerticalSyncEnabled(true);
     
-    Font font;
-    font.loadFromFile("arialmt.ttf");
-    String str = "Привет, мир!";
-    Text text(str,font,300);
-    text.setStyle(Text::Bold);
 
     while (window.isOpen())
     {
@@ -23,9 +26,10 @@ int main()
                 window.close();
         }
         
-        text.setPosition(100, 100);
         window.clear(Color::Black);
-        window.draw(text);
+        for (int x = -500; x < 1920; x++) {
+            window.draw(GetShape(x));
+        }
         window.display();
     }
     return 0;
