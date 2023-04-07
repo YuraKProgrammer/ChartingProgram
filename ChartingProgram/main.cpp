@@ -5,35 +5,52 @@ using namespace sf;
 using namespace std;
 
 
-sf::CircleShape GetShape(int x) {
-    CircleShape shape(10.f, 10);
-    shape.setPosition(x+500, 1080-x*x);
-    shape.setFillColor(Color::Magenta);
-    return shape;
-}
-int coordinate_y(int t, int a, int v, int d)
+const int winSize = 1080; // размер окна
+const int regSize = 1070; // размер области дл€ рисовани€
+const int regIndent = 10; // отступ области дл€ рисовани€
+
+class Point 
 {
-    return 1070 - round(t * t * a / 2 + t * v) * d;
+public:
+    Point(int x, int y) 
+    {
+        this->x = x;
+        this->y = y;
+    }
+    int getX() {
+        return x;
+    }
+    int getY() {
+        return y;
+    }
+private:
+    int x = 0;
+    int y = 0;
+};
+
+int coordinate_y(float t, float a, float v, int d)
+{
+    return regSize - round(t * t * a / 2 + t * v) * d;
 }
 int main()
 {
-    int t;
-    int a;
-    int v1;
-    int v2;
-    cout << "¬ведите врем€ движени€" << endl;
-    cin >> t;
-    cout << "¬ведите ускорение" << endl;
-    cin >> a;
-    cout << "¬ведите начальную скорость" << endl;
-    cin >> v1;
-    int x1;
-    int y1;
-    int x2;
-    int y2;
-    int division_t = round(1070 / t);
-    int division_s = round(1070 / (t * t * a / 2 + t * (v1 + a * t)));
-    sf::RenderWindow window(VideoMode(1080, 1080), L"–исователь графиков", Style::Default);
+    float travelTime = regSize; // врем€ в пути
+    float acceleration = 0.01; // ускорение
+    float startingSpeed = 1; // начальна€ скорость
+    float nextSpeed1 = startingSpeed;
+    float nextSpeed2 = 0;
+    //cout << "¬ведите врем€ движени€" << endl;
+    //cin >> t;
+    //cout << "¬ведите ускорение" << endl;
+    //cin >> a;
+    //cout << "¬ведите начальную скорость" << endl;
+    //cin >> v1;
+    int x1 = 1;
+    int y1 = 1;
+    int y2 = 1;
+    int division_t = round(regSize / travelTime);
+    int division_s = division_t;//(travelTime * travelTime * acceleration / 2 + travelTime * (startingSpeed + acceleration * travelTime)));
+    sf::RenderWindow window(VideoMode(winSize, winSize), L"Graph Builder", Style::Default);
 
     window.setVerticalSyncEnabled(true);
 
@@ -49,30 +66,32 @@ int main()
         window.clear(Color::Black);
         sf::Vertex line[] =
         {
-          sf::Vertex(sf::Vector2f(10, 1070)),
-          sf::Vertex(sf::Vector2f(10, 0))
+          sf::Vertex(sf::Vector2f(regIndent, regSize)),
+          sf::Vertex(sf::Vector2f(regIndent, 0))
         };
         window.draw(line, 2, sf::Lines);
 
         sf::Vertex line2[] =
         {
-          sf::Vertex(sf::Vector2f(10, 1070)),
-          sf::Vertex(sf::Vector2f(1080, 1070))
+          sf::Vertex(sf::Vector2f(regIndent, regSize)),
+          sf::Vertex(sf::Vector2f(winSize, regSize))
         };
         window.draw(line2, 2, sf::Lines);
-        for (int x2 = division_t; x2 < 1080; x2 += division_t) {
+        for (int x2 = division_t; x2 < winSize; x2 += division_t) {
             x1 = round(x2 - division_t);
-            v2 = round(v1 + a);
-            y1 = coordinate_y(x1, a, v1, division_s);
-            y2 = coordinate_y(x2, a, v2, division_s);
+            nextSpeed2 = round(nextSpeed1 + acceleration);
+            y1 = coordinate_y(x1, acceleration, startingSpeed, division_s);
+            Point p1(x1 + regIndent, y1);
+            y2 = coordinate_y(x2, acceleration, startingSpeed, division_s);
+            Point p2(x2 + regIndent, y2);
             sf::Vertex line[] =
             {
-              sf::Vertex(sf::Vector2f(x1 + 10, y1)),
-              sf::Vertex(sf::Vector2f(x2 + 10, y2))
+              sf::Vertex(sf::Vector2f(p1.getX(),p1.getY())),
+              sf::Vertex(sf::Vector2f(p2.getX(),p2.getY()))
             };
-            v1 = v2;
+            nextSpeed1 = nextSpeed2;
+            line->color = Color::Red;
             window.draw(line, 2, sf::Lines);
-
         }
         window.display();
     }

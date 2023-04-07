@@ -1,30 +1,28 @@
 ﻿  main.cpp
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(10,34): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(10,24): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(16,17): warning C4244: return: преобразование "double" в "int", возможна потеря данных
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(34,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(35,20): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(64,23): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(65,23): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(70,48): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(33,20): warning C4244: return: преобразование "float" в "int", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(38,30): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(51,20): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(81,23): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(83,31): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(85,31): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(89,56): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(70,42): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(89,46): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(71,48): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(90,56): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(71,42): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(90,46): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-C:\Users\googl\Documents\GitHub\ChartingProgram\ChartingProgram\main.cpp(32,9): warning C4101: x2: неиспользованная локальная переменная
   ChartingProgram.vcxproj -> C:\Users\googl\Documents\GitHub\ChartingProgram\x64\Debug\ChartingProgram.exe
